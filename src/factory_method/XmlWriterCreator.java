@@ -1,4 +1,4 @@
-package factory.method;
+package factory_method;
 
 public class XmlWriterCreator implements Creator {
     @Override
