@@ -1,9 +1,8 @@
 package singleton;
 
-public enum  Singleton {
+public enum Singleton {
     INSTANCE;
     private int value;
-
 
     public int getValue() {
         return value;

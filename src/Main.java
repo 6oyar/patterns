@@ -31,7 +31,9 @@ public class Main {
                 .userName("!")
                 .build();
 
-        assert account != null && account.getToken().equals("hello") && account.getUserId().equals("world");
+        assert account != null && account.getToken().equals("hello")
+                && account.getUserId().equals("world")
+                && account.getUserName().equals("!");
 
 
         //Фабричный метод
