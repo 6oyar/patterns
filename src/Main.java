@@ -1,27 +1,27 @@
-import abstract_factory.factory.ConcreteFactory1;
-import abstract_factory.factory.ConcreteFactory2;
-import abstract_factory.product.ProductA1;
-import abstract_factory.product.ProductA2;
-import abstract_factory.product.ProductB1;
-import abstract_factory.product.ProductB2;
+import abstract_factory.factory.DieselEngineVehicleFactory;
+import abstract_factory.factory.PetrolEngineVehicleFactory;
+import abstract_factory.product.DieselEngineCar;
+import abstract_factory.product.PetrolEngineCar;
+import abstract_factory.product.DieselEngineTruck;
+import abstract_factory.product.PetrolEngineTruck;
 import builder.Account;
 import factory_method.JsonWriter;
 import factory_method.JsonWriterCreator;
 import factory_method.XmlWriter;
 import factory_method.XmlWriterCreator;
 import prototype.ComplexObject;
-import singleton.Singleton;
+import singleton.President;
 import strategy.Context;
-import strategy.StrategyAdd;
-import strategy.StrategyMultiply;
+import strategy.Addition;
+import strategy.Multiplication;
 
 public class Main {
     public static void main(String[] args) {
 
         //Синглетон
-        Singleton instance = Singleton.INSTANCE;
-        instance.setValue(10);
-        assert instance.getValue() == 10;
+        President instance = President.INSTANCE;
+        instance.setValue(new Object());
+        assert instance.getValue() != null;
 
 
         //Билдер
@@ -49,15 +49,15 @@ public class Main {
 
         //Стратегия
         Context context = new Context();
-        context.setStrategy(new StrategyMultiply());
+        context.setStrategy(new Multiplication());
         assert  context.executeStrategy(10, 10) == 100;
-        context.setStrategy(new StrategyAdd());
+        context.setStrategy(new Addition());
         assert context.executeStrategy(10, 10) == 20;
 
         //Абстрактная фабрика
-        assert  ConcreteFactory1.getInstance().createProductA() instanceof ProductA1;
-        assert ConcreteFactory2.getInstance().createProductA() instanceof ProductA2;
-        assert ConcreteFactory1.getInstance().createProductB() instanceof ProductB1;
-        assert ConcreteFactory2.getInstance().createProductB() instanceof ProductB2;
+        assert DieselEngineVehicleFactory.getInstance().createCar() instanceof DieselEngineCar;
+        assert PetrolEngineVehicleFactory.getInstance().createCar() instanceof PetrolEngineCar;
+        assert DieselEngineVehicleFactory.getInstance().createTruck() instanceof DieselEngineTruck;
+        assert PetrolEngineVehicleFactory.getInstance().createTruck() instanceof PetrolEngineTruck;
     }
 }

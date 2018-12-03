@@ -4,7 +4,7 @@ import abstract_factory.product.AbstractProductA;
 import abstract_factory.product.AbstractProductB;
 
 public interface AbstractFactory {
-    AbstractProductA createProductA();
+    AbstractProductA createCar();
 
-    AbstractProductB createProductB();
+    AbstractProductB createTruck();
 }
