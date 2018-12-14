@@ -1,10 +1,10 @@
 package abstract_factory.factory;
 
-import abstract_factory.product.AbstractProductA;
-import abstract_factory.product.AbstractProductB;
+import abstract_factory.product.Diesel;
+import abstract_factory.product.Petrol;
 
 public interface AbstractFactory {
-    AbstractProductA createCar();
+    Diesel createWithDieselEngine();
 
-    AbstractProductB createTruck();
+    Petrol createWithPetrolEngine();
 }

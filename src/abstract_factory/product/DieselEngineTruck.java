@@ -1,4 +1,4 @@
 package abstract_factory.product;
 
-public class DieselEngineTruck extends AbstractProductB {
+public class DieselEngineTruck extends Diesel {
 }

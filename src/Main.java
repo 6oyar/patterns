@@ -1,5 +1,5 @@
-import abstract_factory.factory.DieselEngineVehicleFactory;
-import abstract_factory.factory.PetrolEngineVehicleFactory;
+import abstract_factory.factory.CarFactory;
+import abstract_factory.factory.TruckFactory;
 import abstract_factory.product.DieselEngineCar;
 import abstract_factory.product.PetrolEngineCar;
 import abstract_factory.product.DieselEngineTruck;
@@ -55,9 +55,9 @@ public class Main {
         assert context.executeStrategy(10, 10) == 20;
 
         //Абстрактная фабрика
-        assert DieselEngineVehicleFactory.getInstance().createCar() instanceof DieselEngineCar;
-        assert PetrolEngineVehicleFactory.getInstance().createCar() instanceof PetrolEngineCar;
-        assert DieselEngineVehicleFactory.getInstance().createTruck() instanceof DieselEngineTruck;
-        assert PetrolEngineVehicleFactory.getInstance().createTruck() instanceof PetrolEngineTruck;
+        assert CarFactory.getInstance().createWithDieselEngine() instanceof DieselEngineCar;
+        assert TruckFactory.getInstance().createWithDieselEngine() instanceof PetrolEngineCar;
+        assert CarFactory.getInstance().createWithPetrolEngine() instanceof DieselEngineTruck;
+        assert TruckFactory.getInstance().createWithPetrolEngine() instanceof PetrolEngineTruck;
     }
 }
